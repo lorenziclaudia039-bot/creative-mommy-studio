@@ -6,7 +6,7 @@
   <title>Creative Mommy Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --cream: #F8F6EE;
@@ -19,7 +19,6 @@
       --paper: #FFFDF8;
       --ink: #252018;
       --muted: #6F665C;
-      --shadow: 0 18px 45px rgba(37, 32, 24, 0.12);
     }
 
     * {
@@ -71,14 +70,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.3px;
+      font-family: 'Chewy', cursive;
+      font-size: 1.55rem;
+      letter-spacing: 0.4px;
     }
 
     .logo-mark {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: var(--hot-pink);
       display: grid;
@@ -88,6 +87,7 @@
       font-weight: 900;
       font-size: 0.95rem;
       box-shadow: 5px 5px 0 var(--lime);
+      border: 2px solid var(--ink);
     }
 
     .nav-links {
@@ -110,6 +110,7 @@
       cursor: pointer;
       border: 2px solid var(--ink);
       box-shadow: 5px 5px 0 var(--ink);
+      text-align: center;
     }
 
     .btn:hover {
@@ -158,15 +159,23 @@
       line-height: 1.04;
     }
 
+    .crayon-title {
+      font-family: 'Chewy', cursive;
+      letter-spacing: 0.6px;
+      color: var(--green);
+      text-shadow:
+        2px 2px 0 var(--soft-pink),
+        4px 4px 0 rgba(243, 86, 149, 0.26);
+    }
+
     h1 {
       font-size: clamp(3.1rem, 7vw, 6rem);
       margin-bottom: 22px;
-      letter-spacing: -1.5px;
+      line-height: 0.95;
     }
 
     .highlight {
       color: var(--hot-pink);
-      position: relative;
       white-space: nowrap;
     }
 
@@ -224,11 +233,12 @@
     }
 
     .studio-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.7rem, 5vw, 4.2rem);
-      line-height: 0.98;
+      font-family: 'Chewy', cursive;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 0.95;
       color: var(--green);
-      max-width: 380px;
+      max-width: 410px;
+      text-shadow: 2px 2px 0 var(--soft-pink);
     }
 
     .squiggle {
@@ -282,6 +292,11 @@
       margin-bottom: 16px;
     }
 
+    .section-heading .crayon-title {
+      color: var(--hot-pink);
+      text-shadow: 2px 2px 0 var(--lime);
+    }
+
     .section-heading p {
       color: var(--muted);
       font-size: 1.07rem;
@@ -299,9 +314,11 @@
       border-radius: 30px;
       border: 3px solid var(--ink);
       box-shadow: 9px 9px 0 var(--ink);
-      min-height: 390px;
+      min-height: 440px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-card::after {
@@ -350,6 +367,24 @@
       z-index: 1;
     }
 
+    .price {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--lime);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      box-shadow: 4px 4px 0 var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card:nth-child(2) .price { background: var(--soft-pink); }
+    .service-card:nth-child(3) .price { background: var(--orange); color: white; }
+
     .service-card ul {
       list-style: none;
       display: grid;
@@ -359,6 +394,7 @@
       font-size: 0.95rem;
       position: relative;
       z-index: 1;
+      margin-bottom: 16px;
     }
 
     .service-card li::before {
@@ -366,6 +402,18 @@
       color: var(--hot-pink);
       margin-right: 8px;
       font-weight: 900;
+    }
+
+    .note {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 800;
+      background: rgba(248, 246, 238, 0.75);
+      border-radius: 18px;
+      padding: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .banner {
@@ -379,10 +427,11 @@
     }
 
     .banner p {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-family: 'Chewy', cursive;
+      font-size: clamp(1.7rem, 3vw, 2.8rem);
       white-space: nowrap;
       text-align: center;
+      letter-spacing: 0.5px;
     }
 
     .process-wrap {
@@ -486,6 +535,64 @@
       opacity: 0.88;
     }
 
+    .custom-box {
+      margin-top: 26px;
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      border-radius: 34px;
+      box-shadow: 9px 9px 0 var(--ink);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .custom-box h3 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .custom-box p {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .idea-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .idea-form input,
+    .idea-form textarea {
+      width: 100%;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1rem;
+      background: var(--cream);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .idea-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .idea-form button {
+      border: 2px solid var(--ink);
+      background: var(--blue);
+      color: white;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 900;
+      font-family: 'Nunito Sans', sans-serif;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
     .cta {
       text-align: center;
       background: var(--paper);
@@ -546,7 +653,7 @@
     }
 
     @media (max-width: 900px) {
-      .hero, .services, .steps, .ideas {
+      .hero, .services, .steps, .ideas, .custom-box {
         grid-template-columns: 1fr;
       }
 
@@ -598,9 +705,9 @@
     <section class="container hero">
       <div>
         <span class="eyebrow">✂️ Back to School y más</span>
-        <h1>Detalles creativos para <span class="highlight">niños</span>, escuela y momentos especiales.</h1>
+        <h1 class="crayon-title">Detalles creativos para <span class="highlight">niños</span>, escuela y momentos especiales.</h1>
         <p>
-          Convertimos ideas simples en recuerdos ilustrados y personalizados: libros de colorear, forros de libretas y ayuda creativa para proyectos.
+          Convertimos ideas simples en recuerdos ilustrados y personalizados: libros de colorear, forros de libros y libretas, y proyectos creativos para niños y familias.
         </p>
         <div class="hero-actions">
           <a href="#contacto" class="btn btn-primary">Crear mi proyecto</a>
@@ -622,7 +729,7 @@
           <div class="supply-grid">
             <div class="supply"><span>📖</span>Coloring Books</div>
             <div class="supply"><span>✏️</span>Libretas</div>
-            <div class="supply"><span>🎨</span>Proyectos</div>
+            <div class="supply"><span>📚</span>Forros</div>
             <div class="supply"><span>💌</span>Regalos</div>
           </div>
         </div>
@@ -635,45 +742,51 @@
 
     <section id="servicios" class="container">
       <div class="section-heading">
-        <h2>Servicios personalizados</h2>
-        <p>Tres servicios principales para crear detalles únicos, coloridos y memorables para niños, escuela, cumpleaños y regalos especiales.</p>
+        <h2 class="crayon-title">Servicios</h2>
+        <p>Opciones creativas y prácticas para Back to School, cumpleaños, recuerdos especiales y regalos personalizados.</p>
       </div>
 
       <div class="services">
         <article class="service-card">
           <div class="icon">📖</div>
           <h3>Libros de colorear personalizados</h3>
-          <p>Libros ilustrados inspirados en la foto, gustos, personalidad y detalles especiales del niño.</p>
+          <span class="price">Desde $35 digital</span>
+          <p>Libros ilustrados personalizados inspirados en fotos, gustos, personalidad y detalles especiales del niño.</p>
           <ul>
-            <li>Perfectos para Back to School</li>
-            <li>Cumpleaños y recuerdos</li>
-            <li>Regalos personalizados</li>
-            <li>Uso personal o familiar</li>
+            <li>10 a 12 páginas</li>
+            <li>Portada personalizada</li>
+            <li>Historia o temática especial</li>
+            <li>Ideal para uso personal, regalos o cumpleaños</li>
           </ul>
+          <div class="note">Precio puede variar según nivel de detalle, cantidad de páginas, impresión y envío.</div>
         </article>
 
         <article class="service-card">
-          <div class="icon">✏️</div>
-          <h3>Forros de libretas personalizados</h3>
-          <p>Diseños para libretas escolares o personales con nombre, colores, tema y estilo favorito.</p>
+          <div class="icon">📚</div>
+          <h3>Forro de libros y libretas</h3>
+          <span class="price">Desde $3 sencillo</span>
+          <p>Servicio para forrar libros escolares y libretas, con opción sencilla o personalizada.</p>
           <ul>
-            <li>Diseños únicos</li>
-            <li>Para niños y niñas</li>
-            <li>Escuela o uso personal</li>
-            <li>Digital o físico</li>
+            <li>Forro transparente sencillo</li>
+            <li>Forros personalizados para libretas</li>
+            <li>Muñequitos, temas o colores favoritos</li>
+            <li>Diseño según la idea del niño o la mamá</li>
           </ul>
+          <div class="note">Costo varía por cantidad, tamaño, materiales y nivel de personalización.</div>
         </article>
 
         <article class="service-card">
           <div class="icon">🎨</div>
           <h3>Ayuda creativa para proyectos</h3>
-          <p>Apoyo creativo para convertir una idea en algo organizado, visual y especial.</p>
+          <span class="price">Stay tuned ✨</span>
+          <p>Próximamente: apoyo creativo para proyectos escolares, actividades especiales y presentaciones visuales.</p>
           <ul>
-            <li>Proyectos escolares</li>
-            <li>Ideas para actividades</li>
-            <li>Diseño visual</li>
-            <li>Conceptos personalizados</li>
+            <li>Ideas para proyectos escolares</li>
+            <li>Conceptos visuales</li>
+            <li>Organización creativa</li>
+            <li>Detalles personalizados</li>
           </ul>
+          <div class="note">Este servicio estará disponible cuando comiencen las clases.</div>
         </article>
       </div>
     </section>
@@ -681,7 +794,7 @@
     <section id="proceso" class="container">
       <div class="process-wrap">
         <div class="section-heading">
-          <h2>Cómo funciona</h2>
+          <h2 class="crayon-title">Cómo funciona</h2>
           <p>Un proceso sencillo para crear algo personalizado, bonito y hecho con intención.</p>
         </div>
 
@@ -694,7 +807,7 @@
           <div class="step">
             <div class="number">2</div>
             <h3>Cuéntanos gustos</h3>
-            <p>Colores favoritos, hobbies, temas, personalidad y detalles importantes.</p>
+            <p>Colores favoritos, hobbies, temas, personajes, personalidad y detalles importantes.</p>
           </div>
           <div class="step">
             <div class="number">3</div>
@@ -712,14 +825,14 @@
 
     <section id="ideas" class="container">
       <div class="section-heading">
-        <h2>Back to School y más</h2>
+        <h2 class="crayon-title">Back to School y más</h2>
         <p>Ideas creativas para etapas especiales, regalos, cumpleaños, recuerdos y proyectos personalizados.</p>
       </div>
 
       <div class="ideas">
         <div class="idea-card">
           <h3>Back to School</h3>
-          <p>Libretas, portadas, libros de colorear y detalles personalizados para comenzar el año escolar con ilusión.</p>
+          <p>Libretas, forros, libros de colorear y detalles personalizados para comenzar el año escolar con ilusión.</p>
         </div>
         <div class="idea-card">
           <h3>Cumpleaños</h3>
@@ -730,13 +843,25 @@
           <p>Piezas únicas para niños, maestras, familiares o cualquier persona que merezca un detalle diferente.</p>
         </div>
       </div>
+
+      <div class="custom-box">
+        <div>
+          <h3>¿Tienes otra idea?</h3>
+          <p>Cuéntanos lo que tienes en mente. Podemos evaluar tu idea y ver cómo convertirla en un detalle creativo, personalizado y especial.</p>
+        </div>
+        <form class="idea-form" onsubmit="sendIdea(event)">
+          <input id="clientName" type="text" placeholder="Tu nombre" required>
+          <textarea id="clientIdea" placeholder="Cuéntanos tu idea aquí..." required></textarea>
+          <button type="submit">Enviar idea por WhatsApp</button>
+        </form>
+      </div>
     </section>
 
     <section id="contacto" class="container">
       <div class="cta">
         <div class="cta-content">
-          <h2>¿Tienes una idea especial?</h2>
-          <p>Cuéntanos qué quieres crear y te ayudamos a convertirlo en un proyecto personalizado, creativo y hermoso.</p>
+          <h2 class="crayon-title">¿Lista para crear algo especial?</h2>
+          <p>Escríbenos por WhatsApp para cotizar tu libro de colorear, forro de libros o libretas personalizadas.</p>
           <a href="https://wa.me/1XXXXXXXXXX?text=Hola%20Creative%20Mommy%20Studio,%20quiero%20información%20sobre%20un%20proyecto%20personalizado." class="btn btn-primary" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
         </div>
       </div>
@@ -748,5 +873,21 @@
       <p>© 2026 Creative Mommy Studio · Diseñado con cariño y creatividad.</p>
     </div>
   </footer>
+
+  <script>
+    const whatsappNumber = '1XXXXXXXXXX';
+
+    function sendIdea(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const idea = document.getElementById('clientIdea').value.trim();
+
+      const message = `Hola Creative Mommy Studio, mi nombre es ${name}. Tengo esta idea: ${idea}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
