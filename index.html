@@ -1,1 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Mommy Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F7F3EE;
+      --blush: #E8CFC8;
+      --sage: #BCC7B2;
+      --beige: #DCC8B5;
+      --rose: #C99591;
+      --text: #4B3F3A;
+      --soft-white: #FFFDF9;
+      --shadow: 0 18px 45px rgba(75, 63, 58, 0.12);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 22px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 149, 145, 0.18);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: rgba(75, 63, 58, 0.78);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--rose);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--soft-white);
+      color: var(--text);
+      border: 1px solid rgba(75, 63, 58, 0.08);
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 50px;
+      padding: 75px 0 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(188, 199, 178, 0.45);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.9rem);
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 590px;
+      color: rgba(75, 63, 58, 0.76);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #FFFDF9, #F1E7DD);
+      border-radius: 36px;
+      min-height: 520px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.8;
+    }
+
+    .blob.one {
+      width: 190px;
+      height: 190px;
+      background: var(--blush);
+      top: -35px;
+      right: -35px;
+    }
+
+    .blob.two {
+      width: 150px;
+      height: 150px;
+      background: var(--sage);
+      bottom: 45px;
+      left: -30px;
+    }
+
+    .visual-card {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      border-radius: 28px;
+      background: rgba(255, 253, 249, 0.78);
+      border: 1px solid rgba(201, 149, 145, 0.18);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mock-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .mock-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 28px 0;
+    }
+
+    .mock-item {
+      min-height: 118px;
+      border-radius: 22px;
+      background: var(--cream);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-weight: 800;
+      color: rgba(75, 63, 58, 0.72);
+      border: 1px solid rgba(75, 63, 58, 0.06);
+    }
+
+    .mock-item:nth-child(2) { background: rgba(232, 207, 200, 0.55); }
+    .mock-item:nth-child(3) { background: rgba(188, 199, 178, 0.55); }
+    .mock-item:nth-child(4) { background: rgba(220, 200, 181, 0.55); }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: rgba(75, 63, 58, 0.72);
+      font-size: 1.05rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--soft-white);
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(75, 63, 58, 0.08);
+      border: 1px solid rgba(201, 149, 145, 0.13);
+      min-height: 350px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: rgba(232, 207, 200, 0.65);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 1.85rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card p {
+      color: rgba(75, 63, 58, 0.72);
+      margin-bottom: 18px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: rgba(75, 63, 58, 0.78);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .service-card li::before {
+      content: '✦';
+      color: var(--rose);
+      margin-right: 8px;
+    }
+
+    .process-wrap {
+      background: linear-gradient(145deg, rgba(232, 207, 200, 0.55), rgba(188, 199, 178, 0.35));
+      border-radius: 40px;
+      padding: 48px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: rgba(255, 253, 249, 0.85);
+      padding: 26px;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 18px;
+    }
+
+    .gallery-card {
+      min-height: 230px;
+      border-radius: 30px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: var(--soft-white);
+      box-shadow: 0 12px 32px rgba(75, 63, 58, 0.08);
+      border: 1px solid rgba(201, 149, 145, 0.13);
+    }
+
+    .gallery-card:nth-child(1) {
+      background: linear-gradient(145deg, rgba(232, 207, 200, 0.65), #FFFDF9);
+    }
+
+    .gallery-card:nth-child(2) {
+      background: linear-gradient(145deg, rgba(188, 199, 178, 0.65), #FFFDF9);
+    }
+
+    .gallery-card:nth-child(3) {
+      background: linear-gradient(145deg, rgba(220, 200, 181, 0.7), #FFFDF9);
+    }
+
+    .gallery-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .cta {
+      text-align: center;
+      background: var(--soft-white);
+      border-radius: 42px;
+      padding: 58px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(201, 149, 145, 0.12);
+    }
+
+    .cta h2 {
+      font-size: clamp(2.2rem, 4vw, 4.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: rgba(75, 63, 58, 0.72);
+    }
+
+    footer {
+      padding: 36px 0;
+      text-align: center;
+      color: rgba(75, 63, 58, 0.62);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .services, .steps, .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero-card {
+        min-height: 460px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .process-wrap {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Creative Mommy Studio</a>
+        <div class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Cómo funciona</a>
+          <a href="#galeria">Ideas</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="container hero">
+      <div>
+        <span class="eyebrow">Back to School y más</span>
+        <h1>Detalles creativos para momentos que merecen recordarse.</h1>
+        <p>
+          Convertimos momentos especiales en recuerdos ilustrados y personalizados para niños, familias y proyectos con intención.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Crear mi proyecto</a>
+          <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Creative Mommy Studio preview">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+        <div class="visual-card">
+          <div>
+            <div class="mock-title">Creative<br>Moments</div>
+            <p>Libros, libretas y proyectos personalizados con una estética soft, limpia y especial.</p>
+          </div>
+          <div class="mock-grid">
+            <div class="mock-item">Coloring Books</div>
+            <div class="mock-item">Notebook Covers</div>
+            <div class="mock-item">School Projects</div>
+            <div class="mock-item">Special Gifts</div>
+          </div>
+          <p><strong>Pequeños detalles, grandes recuerdos.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="container">
+      <div class="section-heading">
+        <h2>Servicios personalizados</h2>
+        <p>Empezamos con tres servicios principales, pensados para ser creativos, delicados y fáciles de adaptar a cada niño o familia.</p>
+      </div>
+
+      <div class="services">
+        <article class="service-card">
+          <div class="icon">📖</div>
+          <h3>Libros de colorear personalizados</h3>
+          <p>Libros ilustrados inspirados en la foto, gustos, personalidad y detalles especiales del niño.</p>
+          <ul>
+            <li>Ideal para Back to School</li>
+            <li>Cumpleaños y recuerdos</li>
+            <li>Regalos personalizados</li>
+            <li>Uso personal o familiar</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon">✏️</div>
+          <h3>Forros de libretas personalizados</h3>
+          <p>Diseños para libretas escolares o personales con nombre, tema, colores y estilo favorito.</p>
+          <ul>
+            <li>Diseños únicos</li>
+            <li>Estilo cute y limpio</li>
+            <li>Para escuela o uso personal</li>
+            <li>Digital o físico</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon">🎨</div>
+          <h3>Ayuda creativa para proyectos</h3>
+          <p>Apoyo creativo para transformar ideas en proyectos bonitos, organizados y visualmente especiales.</p>
+          <ul>
+            <li>Proyectos escolares</li>
+            <li>Ideas para actividades</li>
+            <li>Diseño visual</li>
+            <li>Conceptos personalizados</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="proceso" class="container">
+      <div class="process-wrap">
+        <div class="section-heading">
+          <h2>Cómo funciona</h2>
+          <p>Un proceso sencillo para crear algo personalizado, bonito y hecho con cariño.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="number">1</div>
+            <h3>Envías fotos + detalles</h3>
+            <p>Nos compartes fotos de referencia e información básica del proyecto.</p>
+          </div>
+          <div class="step">
+            <div class="number">2</div>
+            <h3>Cuéntanos gustos</h3>
+            <p>Colores favoritos, hobbies, temas, personalidad y detalles importantes.</p>
+          </div>
+          <div class="step">
+            <div class="number">3</div>
+            <h3>Creamos el diseño</h3>
+            <p>Desarrollamos el concepto, ilustración, portada o idea visual.</p>
+          </div>
+          <div class="step">
+            <div class="number">4</div>
+            <h3>Recibes tu proyecto</h3>
+            <p>Recibe tu diseño digital o producto físico, según el servicio seleccionado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="container">
+      <div class="section-heading">
+        <h2>Back to School y más</h2>
+        <p>Ideas creativas para etapas especiales, regalos, cumpleaños, recuerdos y proyectos personalizados.</p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-card">
+          <h3>Back to School</h3>
+          <p>Libretas, portadas, libros de colorear y detalles personalizados para comenzar el año escolar con ilusión.</p>
+        </div>
+        <div class="gallery-card">
+          <h3>Cumpleaños</h3>
+          <p>Recuerdos ilustrados, actividades y detalles creativos para celebrar momentos especiales.</p>
+        </div>
+        <div class="gallery-card">
+          <h3>Regalos especiales</h3>
+          <p>Piezas únicas para niños, maestras, familiares o cualquier persona que merezca un detalle diferente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container">
+      <div class="cta">
+        <h2>¿Tienes una idea especial?</h2>
+        <p>Cuéntanos lo que quieres crear y te ayudamos a convertirlo en un recuerdo personalizado, creativo y hermoso.</p>
+        <a href="https://wa.me/1XXXXXXXXXX?text=Hola%20Creative%20Mommy%20Studio,%20quiero%20información%20sobre%20un%20proyecto%20personalizado." class="btn btn-primary" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Creative Mommy Studio · Diseñado con cariño y creatividad.</p>
+    </div>
+  </footer>
+</body>
+</html>
